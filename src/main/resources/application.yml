@@ -1,0 +1,49 @@
+# ????
+# classpath : ?? ????? ??? ? class??? ??? ? ? ??? ?? ??? ??, spring??? ? classpath? ?? ??? resources? ??? ????.
+# ???? ?? ??
+#
+spring:
+  pid:
+    file: boot.pid
+  application:
+    name: spring-boot-start
+  banner:
+    charset: UTF-8
+    location: classpath:/banner.txt
+  config:
+    import: classpath:daemon.yml
+  profiles:
+    include:
+      - daemon
+    group:
+      local: daemon-local
+      dev: daemon-dev
+      live: daemon-live
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8443
+  shutdown:
+    grace-period: 5000
+
+  # SSL
+  # 1. terminal ??
+  # 2. keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 4000
+  # 3. curl -I -k https://localhost:8080/hello
+  ssl:
+    key-store: keystore.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: tomcat
+  http2:
+    enabled: true
+
+kyo:
+  #??
+  age: ${random.int}
+  name: kyo
+  #place-holder
+  full-name: ${kyo.name} Kim
+  session-timeout: 20
+

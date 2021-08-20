@@ -1,0 +1,41 @@
+spring:
+  pid:
+    file: boot.pid
+  application:
+    name: spring-boot-start
+  banner:
+    charset: UTF-8
+    location: classpath:/banner.txt
+  config:
+    import: classpath:daemon.yml
+  profiles:
+    include:
+      - daemon
+    group:
+      local: daemon-local
+      dev: daemon-dev
+      live: daemon-live
+
+server:
+  tomcat:
+    uri-encoding: UTF-8
+  port: 8443
+  shutdown:
+    grace-period: 5000
+
+  ssl:
+    key-store: keystore.p12
+    key-store-password: 123456
+    key-store-type: PKCS12
+    key-alias: tomcat
+  http2:
+    enabled: true
+
+
+
+kyo:
+  #랜덤값 설정
+  age: ${random.int}
+  name: kyo
+  #플레이스 홀더
+  full-name: ${kyo.name} Kim
