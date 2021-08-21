@@ -4,21 +4,19 @@ import com.kyo.springbootstart.process.base.service.HelloService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 @Slf4j
-@RequiredArgsConstructor
 public class HelloController {
 
-    private final HelloService helloService;
-
-    @GetMapping("/hello")
-    public String hello() {
-        log.info("===============================");
-        System.out.println("babo");
-        return "hello " + helloService.getName();
+    @GetMapping("hello2")
+    public String hello2(Model model) {
+        model.addAttribute("name", "kyo!!!");
+        return "hello2";
     }
 
 }

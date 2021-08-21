@@ -9,6 +9,9 @@ spring:
   banner:
     charset: UTF-8
     location: classpath:/banner.txt
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
   config:
     import: classpath:daemon.yml
   profiles:
@@ -31,22 +34,19 @@ server:
   # 2. keytool -genkey -alias tomcat -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 4000
   # 3. curl -I -k https://localhost:8080/hello
   #ssl:
-    key-store: keystore.p12
-    key-store-password: 123456
-    key-store-type: PKCS12
-    key-alias: tomcat
+  #  key-store: keystore.p12
+  #  key-store-password: 123456
+  #  key-store-type: PKCS12
+  #  key-alias: tomcat
   http2:
     enabled: true
 
 kyo:
-  #??
   age: ${random.int}
   name: kyo
   #place-holder
   full-name: ${kyo.name} Kim
   session-timeout: 20
-
-
 
 logging:
   dir: /var/log/${spring.application.name}

@@ -6,6 +6,9 @@ spring:
   banner:
     charset: UTF-8
     location: classpath:/banner.txt
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
   config:
     import: classpath:daemon.yml
   profiles:

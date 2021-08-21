@@ -2,9 +2,9 @@
 <configuration>
     <!-- aplication.yml에 정의한 log dir 데이터를 정의합니다 -->
     <springProperty scope="context" name="springAppName" source="spring.application.name" defaultValue="basic" />
-    <springProperty name="TRACE_LOG_FILE_PATH" source="log.trace.file.path" defaultValue="." />
+    <springProperty name="TRACE_LOG_FILE_PATH" source="log.trace.file.path" />
     <springProperty name="TRACE_LOG_FILE_NAME" source="log.trace.file.name" defaultValue="trace" />
-    <springProperty name="BUSINESS_LOG_FILE_PATH" source="log.business.file.path" defaultValue="." />
+    <springProperty name="BUSINESS_LOG_FILE_PATH" source="log.business.file.path" />
     <springProperty name="BUSINESS_LOG_FILE_NAME" source="log.business.file.name" defaultValue="business" />
 
     <!-- logback에 대한 기본적인 설정을 base.xml을 통해서 제공함.console,file appender 를 base.xml에 include 하고 있음-->
