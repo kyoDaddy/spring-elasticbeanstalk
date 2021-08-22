@@ -21,6 +21,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'org.springframework.boot:spring-boot-devtools'
 
+    implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
 
     /* redis */
@@ -65,6 +68,8 @@ dependencies {
     /* guava https://mvnrepository.com/artifact/com.google.guava/guava */
     implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
 
+
+    runtimeOnly 'com.h2database:h2'
 
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
