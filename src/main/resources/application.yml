@@ -25,7 +25,7 @@ spring:
 server:
   tomcat:
     uri-encoding: UTF-8
-  port: 8443
+  port: 5000
   shutdown:
     grace-period: 5000
 
