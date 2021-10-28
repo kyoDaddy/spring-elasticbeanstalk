@@ -70,6 +70,8 @@ dependencies {
     /* guava https://mvnrepository.com/artifact/com.google.guava/guava */
     implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
 
+    // s3 : https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-aws
+    implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.2.6.RELEASE'
 
     runtimeOnly 'com.h2database:h2'
 
