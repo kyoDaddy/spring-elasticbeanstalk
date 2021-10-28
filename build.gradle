@@ -5,8 +5,10 @@ plugins {
 }
 
 group = 'com.kyo'
-version = ''
 sourceCompatibility = '11'
+if('unspecified' == project.property("version")) {
+    project.version = ''
+}
 
 repositories {
     mavenCentral()
@@ -84,7 +86,6 @@ test {
     useJUnitPlatform()
 }
 
-
 jar {
 
 }
@@ -92,3 +93,32 @@ jar {
 bootJar {
     true
 }
+
+
+springBoot {
+    println 'JDK info: ' + JavaVersion.current()
+    buildInfo()
+}
+
+task procfile(dependsOn: 'bootJar') {
+    doFirst {
+        new File("build/libs", "Procfile").text = "web: java -Xmx1g -jar ${project.name}.jar"
+    }
+}
+
+task zipBeanstalk(type: Zip, dependsOn: 'procfile') {
+    from ('.ebextensions') { into '.ebextensions' }
+
+    from ('build/libs') {
+        include("${project.name}.jar")
+        include("Procfile")
+    }
+
+    archiveName "${project.name}.zip"
+    destinationDir(file('/'))
+//    baseName('beanstalk')
+}
+
+
+
+
