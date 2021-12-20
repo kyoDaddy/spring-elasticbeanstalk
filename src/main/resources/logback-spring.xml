@@ -45,7 +45,7 @@
     </appender>
 
     <!--com.kyo.basic 는 패키지명 해당 패키지는 TRACE 레벨 이상이면, CONSOLE과 LOGSTASH 설정을 참고함. -->
-    <logger name="com.kyo.springbootstart" level="TRACE" additivity="false">
+    <logger name="com.kyo.elasticbeanstalk" level="TRACE" additivity="false">
         <appender-ref ref="TRACE_LOG" />
         <appender-ref ref="CONSOLE" />
     </logger>

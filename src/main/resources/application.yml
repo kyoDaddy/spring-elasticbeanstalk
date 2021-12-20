@@ -5,7 +5,7 @@ spring:
   pid:
     file: boot.pid
   application:
-    name: spring-boot-start
+    name: spring-elasticbeanstalk
   banner:
     charset: UTF-8
     location: classpath:/banner.txt
