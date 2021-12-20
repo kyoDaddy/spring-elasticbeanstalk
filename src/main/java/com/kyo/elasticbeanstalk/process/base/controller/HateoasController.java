@@ -1,15 +1,27 @@
 package com.kyo.elasticbeanstalk.process.base.controller;
 
+<<<<<<< HEAD:src/main/java/com/kyo/elasticbeanstalk/process/base/controller/HateoasController.java
 import com.kyo.elasticbeanstalk.config.exception.ApiException;
 import com.kyo.elasticbeanstalk.config.exception.ExceptionEnum;
 import com.kyo.elasticbeanstalk.process.base.dto.HateoasSample;
+=======
+import com.kyo.springbootstart.config.exception.ApiException;
+import com.kyo.springbootstart.config.exception.ExceptionEnum;
+import com.kyo.springbootstart.process.base.dto.HateoasSample;
+import com.kyo.springbootstart.process.base.utils.S3Uploader;
+import lombok.RequiredArgsConstructor;
+>>>>>>> df2bcd6f816c9fbe281d300e800b11e84ac22dc9:src/main/java/com/kyo/springbootstart/process/base/controller/HateoasController.java
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -27,8 +39,10 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
  *
  */
 @RestController
+@RequiredArgsConstructor
 public class HateoasController {
 
+    private final S3Uploader s3Uploader;
 
     // 단건
     @GetMapping(value = "/hateoas-test", produces = { "application/hal+json" })
@@ -76,6 +90,27 @@ public class HateoasController {
 
         return model;
 
+    }
+
+
+    @PostMapping(value = "/hateoas-test3", produces = { "application/hal+json" })
+    public EntityModel<HateoasSample> upload(@RequestParam("images") MultipartFile multipartFile) throws IOException {
+
+        String name = s3Uploader.upload(multipartFile, "static");
+
+        HateoasSample sample = HateoasSample.builder()
+                .name(name)
+                .prefix("s3-test")
+                .build();
+
+        if (sample == null) {
+            throw new ApiException(ExceptionEnum.NOT_FOUND_EXCEPTION_01);
+        }
+
+        EntityModel<HateoasSample> model = EntityModel.of(sample);
+        WebMvcLinkBuilder linkTo = linkTo(methodOn(this.getClass()).upload(multipartFile));
+        model.add(linkTo.withSelfRel());
+        return model;
     }
 
 

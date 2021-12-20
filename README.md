@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # spring-elasticbeanstalk
 
 [AWS Elastic Beanstalk 설명서](https://docs.aws.amazon.com/ko_kr/elastic-beanstalk/?id=docs_gateway) 참고하여, spring boot elasticbeanstalk 초기 설정을 공부한다.
@@ -26,4 +27,16 @@
 * 배포 완료되면 ec2 생성되고 터미널 접근 가능하다.
 
 
+=======
+# spring-boot-start
+skeleton code
+
+- spring-boot 2.5.x
+  - spring 관련 기본 설정들
+- restful-api
+  - hateoas 설정
+- aws 관련
+  - ElasticBeanstalk 설정
+  - S3 파일 업로드
+>>>>>>> df2bcd6f816c9fbe281d300e800b11e84ac22dc9
 

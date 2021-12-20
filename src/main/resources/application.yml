@@ -13,7 +13,7 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   config:
-    import: classpath:daemon.yml
+    import: classpath:daemon.yml, classpath:aws.yml
   profiles:
     include:
       - daemon
@@ -50,6 +50,8 @@ kyo:
 
 logging:
   dir: /var/log/${spring.application.name}
+  level.com.amazonaws.util.EC2MetadataUtils: error
+
 
 log:
   trace:
