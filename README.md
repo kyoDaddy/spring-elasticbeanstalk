@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # spring-elasticbeanstalk
 
 [AWS Elastic Beanstalk 설명서](https://docs.aws.amazon.com/ko_kr/elastic-beanstalk/?id=docs_gateway) 참고하여, spring boot elasticbeanstalk 초기 설정을 공부한다.
@@ -20,23 +19,16 @@
 ## 배포 설정
 * bootJar 로 만들어진 배포 파일을 포함한 elasticbeanstalk 배포 파일을 spring-elasticbeanstalk.zip 으로 만듬
   * ![.extensions](desc/elasticbeanstalk-build-gradle.png)
-  spring boot는 OCI Image를 빌드하는 방법을 제공한다. OCI는 컨테이너 기술의 표준과 같은 개념인듯.
+  * AWS Console 접근하여 Elasticbeanstalk 생성 및 zip 파일 업로드
+    * 배포 완료되면 ec2 생성되고 터미널 접근 가능하다.
+  
+## 기타
+* spring-boot 2.5.x
+  * spring 관련 기본 설정들
+* restful-api
+  * hateoas 설정
+* aws 관련
+  * ElasticBeanstalk 설정
+  * S3 파일 업로드
 
-
-## AWS Console 접근하여 Elasticbeanstalk 생성 및 zip 파일 업로드
-* 배포 완료되면 ec2 생성되고 터미널 접근 가능하다.
-
-
-=======
-# spring-boot-start
-skeleton code
-
-- spring-boot 2.5.x
-  - spring 관련 기본 설정들
-- restful-api
-  - hateoas 설정
-- aws 관련
-  - ElasticBeanstalk 설정
-  - S3 파일 업로드
->>>>>>> df2bcd6f816c9fbe281d300e800b11e84ac22dc9
 
