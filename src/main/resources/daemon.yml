@@ -1,35 +1,23 @@
 # 스프링 부트 2.4 이전에는 default 영역으로 인식되었지만,
 # 스프링 부트 2.4 부터는 제일 마지막 정의된 내용으로 덮어씌워진다.
 
+spring:
+  config:
+    activate:
+      on-profile: local
+
 daemon:
-  nick-name: Developer local
-  root-uri: "http://127.0.0.1:5000"
+  nick-name: kyo local
 
 ---
 # java -jar -Dspring.profiles.active=local  ./spring-boot-start.jar
 spring:
-  profiles: daemon-local
+  config:
+    activate:
+      on-profile: dev
 
 daemon:
-  nick-name: Developer local
-  root-uri: "http://127.0.0.1:5000"
+  nick-name: kyo dev
 
----
-# java -jar -Dspring.profiles.active=dev  ./spring-boot-start.jar
-spring:
-  profiles: daemon-dev
-
-daemon:
-  nick-name: Developer dev
-  root-uri: "http://172.23.38.172:5000"
-
----
-# java -jar -Dspring.profiles.active=live  ./spring-boot-start.jar
-spring:
-  profiles: daemon-live
-
-daemon:
-  nick-name: Developer live
-  root-uri: "http://myebapp-env.eba-yuvvdhqp.ap-northeast-2.elasticbeanstalk.com"
 
 

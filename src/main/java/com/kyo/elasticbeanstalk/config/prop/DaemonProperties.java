@@ -20,16 +20,14 @@ import javax.annotation.PostConstruct;
 @Component
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "daemon")
-public class DaemonProp {
+public class DaemonProperties {
 
     private String nickName;
-    private String rootUri;
 
     @PostConstruct
     private void showProperties() {
 
         log.info("nickName --> {}", nickName);
-        log.info("rootUri --> {}", rootUri);
 
     }
 

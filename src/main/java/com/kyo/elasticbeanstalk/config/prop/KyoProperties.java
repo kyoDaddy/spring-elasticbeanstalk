@@ -23,7 +23,7 @@ import java.time.temporal.ChronoUnit;
 @Component
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "kyo")
-public class KyoProp {
+public class KyoProperties {
 
     private String name;
     private int age;

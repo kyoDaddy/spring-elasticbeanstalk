@@ -13,14 +13,13 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   config:
-    import: classpath:daemon.yml, classpath:aws.yml
+    import: classpath:daemon.yml
   profiles:
     include:
       - daemon
     group:
-      local: daemon-local
-      dev: daemon-dev
-      live: daemon-live
+      local: local
+      dev: dev
 
 server:
   tomcat:
@@ -50,7 +49,6 @@ kyo:
 
 logging:
   dir: /var/log/${spring.application.name}
-  level.com.amazonaws.util.EC2MetadataUtils: error
 
 
 log:
@@ -62,3 +60,15 @@ log:
     file:
       name: business
       path: ${logging.dir}
+
+#cloud:
+#  aws:
+#    credentials:
+#      accessKey: 1
+#      secretKey: 1
+#    s3:
+#      bucket: 1
+#    region:
+#      static: ap-northeast-2
+#    stack:
+#      auto: false

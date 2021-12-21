@@ -1,16 +1,9 @@
 package com.kyo.elasticbeanstalk.process.base.controller;
 
-<<<<<<< HEAD:src/main/java/com/kyo/elasticbeanstalk/process/base/controller/HateoasController.java
 import com.kyo.elasticbeanstalk.config.exception.ApiException;
 import com.kyo.elasticbeanstalk.config.exception.ExceptionEnum;
 import com.kyo.elasticbeanstalk.process.base.dto.HateoasSample;
-=======
-import com.kyo.springbootstart.config.exception.ApiException;
-import com.kyo.springbootstart.config.exception.ExceptionEnum;
-import com.kyo.springbootstart.process.base.dto.HateoasSample;
-import com.kyo.springbootstart.process.base.utils.S3Uploader;
 import lombok.RequiredArgsConstructor;
->>>>>>> df2bcd6f816c9fbe281d300e800b11e84ac22dc9:src/main/java/com/kyo/springbootstart/process/base/controller/HateoasController.java
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.Link;
@@ -42,7 +35,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 @RequiredArgsConstructor
 public class HateoasController {
 
-    private final S3Uploader s3Uploader;
+    //private final S3Uploader s3Uploader;
 
     // 단건
     @GetMapping(value = "/hateoas-test", produces = { "application/hal+json" })
@@ -96,7 +89,8 @@ public class HateoasController {
     @PostMapping(value = "/hateoas-test3", produces = { "application/hal+json" })
     public EntityModel<HateoasSample> upload(@RequestParam("images") MultipartFile multipartFile) throws IOException {
 
-        String name = s3Uploader.upload(multipartFile, "static");
+        //String name = s3Uploader.upload(multipartFile, "static");
+        String name = "";
 
         HateoasSample sample = HateoasSample.builder()
                 .name(name)

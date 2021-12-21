@@ -1,7 +1,7 @@
 package com.kyo.elasticbeanstalk.config.runner;
 
 
-import com.kyo.elasticbeanstalk.config.prop.DaemonProp;
+import com.kyo.elasticbeanstalk.config.prop.DaemonProperties;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -14,10 +14,10 @@ public class SampleRunner implements ApplicationRunner {
     @Value("${server.port}")
     private String port;
 
-    private final DaemonProp daemonProp;
+    private final DaemonProperties daemonProperties;
 
-    public SampleRunner(DaemonProp daemonProp) {
-        this.daemonProp = daemonProp;
+    public SampleRunner(DaemonProperties daemonProperties) {
+        this.daemonProperties = daemonProperties;
     }
 
     @Override
@@ -27,6 +27,6 @@ public class SampleRunner implements ApplicationRunner {
                 .forEach(System.out::println);
 
         System.out.println("on port (runner) : " + port);
-        System.out.println("on port (runner) : " + daemonProp.getNickName());
+        System.out.println("on port (runner) : " + daemonProperties.getNickName());
     }
 }

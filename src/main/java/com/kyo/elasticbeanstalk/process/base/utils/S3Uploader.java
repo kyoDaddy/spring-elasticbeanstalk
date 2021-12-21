@@ -1,5 +1,5 @@
-package com.kyo.springbootstart.process.base.utils;
-
+package com.kyo.elasticbeanstalk.process.base.utils;
+/*
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
@@ -14,6 +14,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.UUID;
+
 
 @Slf4j
 @RequiredArgsConstructor
@@ -71,5 +72,6 @@ public class S3Uploader {
         amazonS3Client.putObject(new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(CannedAccessControlList.PublicRead));
         return amazonS3Client.getUrl(bucket, fileName).toString();
     }
-    
+
 }
+*/
