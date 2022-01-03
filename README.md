@@ -1,11 +1,5 @@
 # spring-elasticbeanstalk
-1. 목적 : 레거시 프로젝트가 python + elasticbeanstalk 으로 구성되어 있어, 구조 파악을 위함
-2. 추가 참고 레퍼런스
-   1. [AWS Elastic Beanstalk 설명서](https://docs.aws.amazon.com/ko_kr/elastic-beanstalk/?id=docs_gateway)
-   2. [Github Action & AWS Beanstalk 배포하기](https://jojoldu.tistory.com/549)
-   3. [Spring boot .ebextensions nginx 및 기본 사용방법](https://wky.kr/45)
-   4. [Java Jar 파일을 통한 Web Application Deploy](https://browndwarf.tistory.com/66) 
-
+레거시 프로젝트가 python + elasticbeanstalk 으로 구성되어 있어, 구조 파악을 위함
 
 ## Spring boot에서 AWS Elastic Beanstalk 사용시 .ebextensions 사용하는 방법
 * .ebextensions 폴더를 프로젝트 최상위에 생성
@@ -31,3 +25,8 @@
   * S3 파일 업로드
 
 
+## 추가 참고 레퍼런스
+1. [AWS Elastic Beanstalk 설명서](https://docs.aws.amazon.com/ko_kr/elastic-beanstalk/?id=docs_gateway)
+2. [Github Action & AWS Beanstalk 배포하기](https://jojoldu.tistory.com/549)
+3. [Spring boot .ebextensions nginx 및 기본 사용방법](https://wky.kr/45)
+4. [Java Jar 파일을 통한 Web Application Deploy](https://browndwarf.tistory.com/66) 
